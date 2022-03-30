@@ -1,7 +1,7 @@
 resource "aws_security_group" "my_public_app_sg" {
   name        = "my_public_app_sg"
   description = "creating SG for my public app"
-  vpc_id      = data.aws_vpc.aws_vpc_name.id
+  vpc_id      = data.aws_vpc.main_vpc.id
 
   # INBOUND CONNECTIONS
   ingress {
@@ -9,8 +9,10 @@ resource "aws_security_group" "my_public_app_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["207.5.37.7/32"]
   }
+
+
 
   # OUTBOUT CONNECTIONS
   egress {

@@ -7,19 +7,17 @@ data "aws_ami" "aws_basic_linux" {
   }
 }
 
-
-
-data "aws_vpc" "aws_vpc_name" {
+data "aws_vpc" "main_vpc" {
   filter {
-    name    = "name"
-    values  = [var.aws_vpc_name]
-    }
+    name   = "tag:Name"
+    values = [var.vpc_name]
+  }
 }
 
 
 data "aws_subnet" "public" {
   filter {
-    name   = "name"
-    values = ["var.public_subnet_name"]
+    name   = "tag:Name"
+    values = [var.public_subnet_name]
   }
-}    
+}
