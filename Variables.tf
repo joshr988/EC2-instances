@@ -22,11 +22,19 @@ variable "my_keypair" {
   default = "TA ec2 keypair"
 }
 
-variable "number_of_instances" {
-  description = "amount of instances for my public subnet"
+variable "number_of_private_instances" {
+  description = "amount of instances for my private subnet"
 }
 
 variable "ec2_type" {
   description = "type of ec2 instance"
   type        = string
+}
+
+variable "private_subnet_name" {
+  type = string
+}
+  
+  variable "number_of_public_instances" {
+  description = "amount of instances for my public subnet"
 }
